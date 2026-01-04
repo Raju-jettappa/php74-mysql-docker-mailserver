@@ -36,8 +36,7 @@ docker exec -it php74_web php -m | grep mysqli
 # Composer version
 docker exec -it php74_web composer --version
 
-**
-Notes**
+# Notes
 
 Ports: 8080 → PHP, 8081 → phpMyAdmin, 3306 → MySQL
 
@@ -65,13 +64,30 @@ up → starts the containers
 Step 3: Verify containers are running
 docker ps
 
+# ========================================================================
+1️⃣ Start the server
+Step 1: Open CMD / Terminal
+
+Navigate to your project folder:
+
+cd D:\dockers\php74-docker
+
+Step 2: Build and start containers
+docker-compose up -d --build
+
+
+up → starts the containers
+
+-d → detached mode (runs in background)
+
+--build → rebuilds Dockerfile if changed
+
+Step 3: Verify containers are running
+docker ps
+
 
 You should see:
 
-NAME	IMAGE	STATUS	PORTS
-php74_web	php:7.4-apache	Up	0.0.0.0:8080->80
-mysql_db	mysql:8.0	Up	0.0.0.0:3306->3306
-phpmyadmin	phpmyadmin/phpmyadmin	Up	0.0.0.0:8081->80
 2️⃣ Stop the server
 Option 1: Stop without removing containers
 docker-compose stop
@@ -92,7 +108,6 @@ Keeps volumes (db_data) unless you add -v
 Verify containers stopped
 docker ps -a
 
-=============================================================================================
 All web, db, phpmyadmin containers should be Exited
 
 3️⃣ Restart the server
